@@ -157,7 +157,7 @@ public class WebDriverWithHelperJSONTest implements SauceOnDemandSessionIdProvid
         String browserVer = String.format("%-19s", browserVersion).replaceAll(" ", ".");
         System.out.println("@Test validateTitle() testing browser/version: " + browserName + browserVer + "platform: " + platform);
 
-        webDriver.get("https://saucelabs.com/test/guinea-pig");
+        webDriver.get("http://hahow.csie.org");
         assertEquals("I am a page title - Sauce Labs", webDriver.getTitle());
 
         webDriver.quit();

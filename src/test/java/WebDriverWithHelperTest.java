@@ -75,7 +75,7 @@ public class WebDriverWithHelperTest implements SauceOnDemandSessionIdProvider {
 
     @Test
     public void validateTitle() throws Exception {
-        webDriver.get("https://saucelabs.com/test/guinea-pig");
+        webDriver.get("http://hahow.csie.org");
         assertEquals("I am a page title - Sauce Labs", webDriver.getTitle());
     }
 
