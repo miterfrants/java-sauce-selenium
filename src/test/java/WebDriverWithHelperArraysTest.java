@@ -158,8 +158,8 @@ public class WebDriverWithHelperArraysTest implements SauceOnDemandSessionIdProv
                 String url = "http://hahow.csie.org";
                 System.out.println(url);
                 webDriver.get(url);
-                assertEquals("I am a page title - Sauce Labs", webDriver.getTitle());
-
+                //webDriver.findElement(By.xpath("//footer")).click();
+                assertEquals("分享，學習 - Hahow 好學校", webDriver.getTitle());
             } catch (Exception e) {
                 System.err.println("Caught Exception in @Test validateTitle() testing browser/browser version: " + browser + " " + browserVersion + "   platform: " + platform + e.getMessage());
             }

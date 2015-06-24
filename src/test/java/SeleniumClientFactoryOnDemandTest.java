@@ -38,6 +38,6 @@ public class SeleniumClientFactoryOnDemandTest {
     @Ignore
     public void fullRun() throws Exception {
         webDriver.get("http://hahow.csie.org");
-        assertEquals("I am a page title - Sauce Labs", webDriver.getTitle());
+        assertEquals("分享，學習 - Hahow 好學校", webDriver.getTitle());
     }
 }

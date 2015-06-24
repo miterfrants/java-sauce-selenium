@@ -144,9 +144,10 @@ public class WebDriverWithHelperParametersTest implements SauceOnDemandSessionId
         String browserName = String.format("%-19s", browser).replaceAll(" ", ".").replaceFirst("[.]", " ");
         String browserVer = String.format("%-19s", browserVersion).replaceAll(" ", ".");
         System.out.println("@Test validateTitle() testing browser/version: " + browserName + browserVer + "platform: " + platform);
-
-        webDriver.get("http://hahow.csie.org");
-        assertEquals("I am a page title - Sauce Labs", webDriver.getTitle());
+        String url = "http://hahow.csie.org";
+        System.out.println("URL:" + url);
+        webDriver.get(url);
+        assertEquals("分享，學習 - Hahow 好學校", webDriver.getTitle());
 
         webDriver.quit();
     }
