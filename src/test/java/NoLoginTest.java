@@ -30,49 +30,53 @@ import static org.junit.Assert.assertEquals;
 public class NoLoginTest implements SauceOnDemandSessionIdProvider
  {
 
-    private List<DesiredCapabilities> drivers;
+    
     private WebDriver driver;
     private String sessionId = "";
-
+    private DesiredCapabilities caps;
     public SauceOnDemandAuthentication authentication = new SauceOnDemandAuthentication();
     public @Rule
     SauceOnDemandTestWatcher resultReportingTestWatcher = new SauceOnDemandTestWatcher(this, authentication);
     public @Rule TestName testName = new TestName();
-    
-    @Before
-    public void setUp() throws Exception {
-        drivers = new ArrayList<DesiredCapabilities>();
+
+    @Parameters
+    public static List<DesiredCapabilities> data() {
+        List<DesiredCapabilities> drivers = new ArrayList<DesiredCapabilities>();
         // Choose the browser, version, and platform to test
         DesiredCapabilities capsIE11Win81 = DesiredCapabilities.internetExplorer();
         capsIE11Win81.setCapability("platform", "Windows 8.1");
         capsIE11Win81.setCapability("version", "11.0");
 
-        this.drivers.add(capsIE11Win81);
+        drivers.add(capsIE11Win81);
 
         DesiredCapabilities capsIE11Win7 = DesiredCapabilities.internetExplorer();
         capsIE11Win7.setCapability("platform", "Windows 7");
         capsIE11Win7.setCapability("version", "11.0");
 
-        this.drivers.add(capsIE11Win7);
+        drivers.add(capsIE11Win7);
+
+        return drivers;
+
+    }
+
+    public NoLoginTest(DesiredCapabilities pCaps) {
+        this.caps = pCaps;
     }
 
     @Test
     public void webDriver() throws Exception {
 
-        for(int i=0;i<this.drivers.size();i++){
-            driver = new RemoteWebDriver(
-                new URL("http://miterfrants:08d2200d-eabe-4d7e-817b-ecb7fb03af57@ondemand.saucelabs.com:80/wd/hub"),
-                this.drivers.get(i));
-            this.sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
+        driver = new RemoteWebDriver(
+            new URL("http://miterfrants:08d2200d-eabe-4d7e-817b-ecb7fb03af57@ondemand.saucelabs.com:80/wd/hub"),
+            this.caps);
+        this.sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
 
-            String url = "http://hahow.csie.org/";
-            driver.get(url);
-            System.out.println("URL:" + url);
-            assertEquals("分享，學習 - Hahow 好學校", driver.getTitle());    
-            driver.quit();
-            System.out.println("job finished");
-        }
-
+        String url = "http://hahow.csie.org/";
+        driver.get(url);
+        System.out.println("URL:" + url);
+        assertEquals("分享，學習 - Hahow 好學校", driver.getTitle());    
+        driver.quit();
+        System.out.println("job finished");
     }
 
     @After
