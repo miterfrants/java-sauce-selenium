@@ -40,7 +40,7 @@ import static org.junit.Assert.assertEquals;
  * @author Bernie Cohen - modified to support parameterized testing against multiple environments
  */
 @RunWith(Parameterized.class)
-public class WebDriverWithHelperParametersTest implements SauceOnDemandSessionIdProvider {
+public class NoLoginUser implements SauceOnDemandSessionIdProvider {
 
     private WebDriver webDriver;
     private static DesiredCapabilities capabilities;
