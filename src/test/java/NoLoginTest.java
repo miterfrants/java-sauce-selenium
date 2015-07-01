@@ -44,7 +44,7 @@ public class NoLoginTest implements SauceOnDemandSessionIdProvider
     public static List<DesiredCapabilities> data() {
         System.out.println("set @parameters");
 
-        List<DesiredCapabilities> drivers = new ArrayList<DesiredCapabilities>();
+        Iterable<DesiredCapabilities> drivers = new ArrayList<DesiredCapabilities>();
         // Choose the browser, version, and platform to test
         DesiredCapabilities capsIE11Win81 = DesiredCapabilities.internetExplorer();
         capsIE11Win81.setCapability("platform", "Windows 8.1");
