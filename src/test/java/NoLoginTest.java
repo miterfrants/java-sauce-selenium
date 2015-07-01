@@ -27,13 +27,18 @@ import org.json.JSONObject;
 
 import static org.junit.Assert.assertEquals;
 
-public class NoLoginTest
+public class NoLoginTest implements SauceOnDemandSessionIdProvider
  {
 
     private List<DesiredCapabilities> drivers;
     private WebDriver driver;
     private String sessionId = "";
 
+    public SauceOnDemandAuthentication authentication = new SauceOnDemandAuthentication();
+    public @Rule
+    SauceOnDemandTestWatcher resultReportingTestWatcher = new SauceOnDemandTestWatcher(this, authentication);
+    public @Rule TestName testName = new TestName();
+    
     @Before
     public void setUp() throws Exception {
         drivers = new ArrayList<DesiredCapabilities>();
