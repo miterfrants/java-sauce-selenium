@@ -105,8 +105,8 @@ public class WebDriverWithHelperParametersTest implements SauceOnDemandSessionId
     @Parameters
     public static Collection<Object[]> data() {
         Object[][] capabilitiesParams = {
-                                            { "iexplore", "", "Windows 8.1" },
-                                            { "internet explorer", "", "Windows 8.1" }
+                                            { "iexplore", "11.0", "Windows 8.1" },
+                                            { "internet explorer", "11.9", "Windows 8.1" }
                                         };
 
         return Arrays.asList(capabilitiesParams);
@@ -129,12 +129,14 @@ public class WebDriverWithHelperParametersTest implements SauceOnDemandSessionId
      */
     @Test
     public void validateTitle() throws Exception {
-
-        capabilities = new DesiredCapabilities(browser, browserVersion, setPlatformCapabilities(platform));
-        capabilities.setCapability("name", this.getClass().getName() + "." + testName.getMethodName());
+        DesiredCapabilities caps = DesiredCapabilities.internetExplorer();
+        caps.setCapability("platform", "Windows 8.1");
+        caps.setCapability("version", "11.0");
+        //capabilities = new DesiredCapabilities(browser, browserVersion, setPlatformCapabilities(platform));
+        //caps.setCapability("name", this.getClass().getName() + "." + testName.getMethodName());
         this.webDriver = new RemoteWebDriver(
                 new URL("http://" + authentication.getUsername() + ":" + authentication.getAccessKey() + "@ondemand.saucelabs.com:80/wd/hub"),
-                capabilities);
+                caps);
         this.sessionId = ((RemoteWebDriver)webDriver).getSessionId().toString();
 
         if (browserVersion == "") browserVersion = "unspecified";
