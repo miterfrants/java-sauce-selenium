@@ -27,6 +27,7 @@ import org.json.JSONObject;
 
 import static org.junit.Assert.assertEquals;
 
+@RunWith(Parameterized.class)
 public class NoLoginTest implements SauceOnDemandSessionIdProvider
  {
 
