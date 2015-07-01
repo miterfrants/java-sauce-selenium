@@ -58,7 +58,7 @@ public class NoLoginTest implements SauceOnDemandSessionIdProvider
 
         drivers[1]=capsIE11Win7;
 
-        return drivers;
+        return Array.asList(drivers);
 
     }
 
