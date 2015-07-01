@@ -31,7 +31,7 @@ public class NoLoginTest
  {
 
     private List<DesiredCapabilities> drivers;
-
+    private WebDriver driver;
     @Before
     public void setUp() throws Exception {
         // Choose the browser, version, and platform to test
@@ -52,21 +52,22 @@ public class NoLoginTest
     public void webDriver() throws Exception {
 
         for(int i=0;i<this.drivers.size();i++){
-            WebDriver driver = new RemoteWebDriver(
+            driver = new RemoteWebDriver(
                 new URL("http://miterfrants:08d2200d-eabe-4d7e-817b-ecb7fb03af57@ondemand.saucelabs.com:80/wd/hub"),
                 this.drivers.get(i));
             String url = "http://hahow.csie.org/";
             driver.get(url);
             System.out.println("URL:" + url);
             assertEquals("分享，學習 - Hahow 好學校", driver.getTitle());    
+            driver.quit();
+            System.out.println("job finished");
         }
 
     }
 
     @After
     public void tearDown() throws Exception {
-        driver.quit();
-        System.out.println("job finished");
+        
     }
 
 }
