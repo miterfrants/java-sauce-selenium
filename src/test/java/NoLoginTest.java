@@ -46,14 +46,16 @@ public class NoLoginTest
 
     @Test
     public void webDriver() throws Exception {
-        // Make the browser get the page and check its title
-        driver.get("http://hahow.csie.org/");
+        String url = "http://hahow.csie.org/";
+        driver.get(url);
+        System.out.println("URL:" + url);
         assertEquals("分享，學習 - Hahow 好學校", driver.getTitle());
     }
 
     @After
     public void tearDown() throws Exception {
         driver.quit();
+        System.out.println("job finished");
     }
 
 }
