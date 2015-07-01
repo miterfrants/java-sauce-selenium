@@ -106,8 +106,8 @@ public class WebDriverWithHelperParametersTest implements SauceOnDemandSessionId
     public static Collection<Object[]> data() {
         Object[][] capabilitiesParams = {
                                             { "chrome", "", "WIN8.1" },
-                                            { "internetExplorer", "11", "WIN8.1" },
-                                            { "firefox", "34.0.5", "WIN8.1" }
+                                            { "internet explorer", "11", "WIN7" },
+                                            { "firefox", "38.0", "WIN8.1" }
                                         };
 
         return Arrays.asList(capabilitiesParams);
