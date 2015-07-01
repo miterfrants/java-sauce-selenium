@@ -41,6 +41,8 @@ public class NoLoginTest implements SauceOnDemandSessionIdProvider
 
     @Parameters
     public static List<DesiredCapabilities> data() {
+        System.out.println("set @parameters");
+
         List<DesiredCapabilities> drivers = new ArrayList<DesiredCapabilities>();
         // Choose the browser, version, and platform to test
         DesiredCapabilities capsIE11Win81 = DesiredCapabilities.internetExplorer();
@@ -60,12 +62,13 @@ public class NoLoginTest implements SauceOnDemandSessionIdProvider
     }
 
     public NoLoginTest(DesiredCapabilities pCaps) {
+        System.out.println("new a test instant");
         this.caps = pCaps;
     }
 
     @Test
     public void webDriver() throws Exception {
-
+        System.out.println("testing start");
         driver = new RemoteWebDriver(
             new URL("http://miterfrants:08d2200d-eabe-4d7e-817b-ecb7fb03af57@ondemand.saucelabs.com:80/wd/hub"),
             this.caps);
