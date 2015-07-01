@@ -44,21 +44,21 @@ public class NoLoginTest implements SauceOnDemandSessionIdProvider
     public static Collection<DesiredCapabilities> data() {
         System.out.println("set @parameters");
 
-        DesiredCapabilities[] drivers = new DesiredCapabilities[2];
+        List<DesiredCapabilities> drivers = new ArrayList<DesiredCapabilities>();
         // Choose the browser, version, and platform to test
         DesiredCapabilities capsIE11Win81 = DesiredCapabilities.internetExplorer();
         capsIE11Win81.setCapability("platform", "Windows 8.1");
         capsIE11Win81.setCapability("version", "11.0");
 
-        drivers[0]=capsIE11Win81;
+        drivers.add(capsIE11Win81);
 
         DesiredCapabilities capsIE11Win7 = DesiredCapabilities.internetExplorer();
         capsIE11Win7.setCapability("platform", "Windows 7");
         capsIE11Win7.setCapability("version", "11.0");
 
-        drivers[1]=capsIE11Win7;
+        drivers.add(capsIE11Win7);
 
-        return Arrays.asList(drivers);
+        return drivers;
 
     }
 
