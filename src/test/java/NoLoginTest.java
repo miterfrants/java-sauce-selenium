@@ -30,26 +30,38 @@ import static org.junit.Assert.assertEquals;
 public class NoLoginTest
  {
 
-    private WebDriver driver;
+    private List<DesiredCapabilities> drivers;
 
     @Before
     public void setUp() throws Exception {
         // Choose the browser, version, and platform to test
-        DesiredCapabilities capsIE = DesiredCapabilities.internetExplorer();
-        capsIE.setCapability("platform", "Windows 8.1");
-        capsIE.setCapability("version", "11.0");
-        // Create the connection to Sauce Labs to run the tests
-        this.driver = new RemoteWebDriver(
-                new URL("http://miterfrants:08d2200d-eabe-4d7e-817b-ecb7fb03af57@ondemand.saucelabs.com:80/wd/hub"),
-                capsIE);
+        DesiredCapabilities capsIE11Win81 = DesiredCapabilities.internetExplorer();
+        capsIE11Win81.setCapability("platform", "Windows 8.1");
+        capsIE11Win81.setCapability("version", "11.0");
+
+        drivers.add(capsIE11Win81);
+
+        DesiredCapabilities capsIE11Win7 = DesiredCapabilities.internetExplorer();
+        capsIE11Win7.setCapability("platform", "Windows 7");
+        capsIE11Win7.setCapability("version", "11.0");
+
+        drivers.add(capsIE11Win7);
     }
 
     @Test
     public void webDriver() throws Exception {
-        String url = "http://hahow.csie.org/";
-        driver.get(url);
-        System.out.println("URL:" + url);
-        assertEquals("分享，學習 - Hahow 好學校", driver.getTitle());
+
+        for(int i=0;i<this.drivers.size();i++){
+            DesiredCapabilities driver = new RemoteWebDriver(
+                new URL("http://miterfrants:08d2200d-eabe-4d7e-817b-ecb7fb03af57@ondemand.saucelabs.com:80/wd/hub"),
+                this.drivers.get(i));
+            String url = "http://hahow.csie.org/";
+            driver.get(url);
+            System.out.println("URL:" + url);
+            assertEquals("分享，學習 - Hahow 好學校", driver.getTitle());    
+        }
+
+        
     }
 
     @After
