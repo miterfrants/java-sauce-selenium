@@ -107,9 +107,9 @@ public class WebDriverWithHelperParametersTest implements SauceOnDemandSessionId
 
         Object[][] capabilitiesParams = {
                                             { "chrome", "", "ANDROID" },
-                                            { "firefox", "18.0.2", "LINUX" },
-                                            { "firefox", "19.0", "LINUX" },
-                                            { "firefox", "17.0.1", "WINDOWS" },
+                                            { "chrome", "", "WINDOWS" },
+                                            { "internet explorer", "11", "WINDOWS" },
+                                            { "firefox", "17.0.1", "WINDOWS" }
                                         };
 
         return Arrays.asList(capabilitiesParams);
@@ -144,6 +144,8 @@ public class WebDriverWithHelperParametersTest implements SauceOnDemandSessionId
         String browserName = String.format("%-19s", browser).replaceAll(" ", ".").replaceFirst("[.]", " ");
         String browserVer = String.format("%-19s", browserVersion).replaceAll(" ", ".");
         System.out.println("@Test validateTitle() testing browser/version: " + browserName + browserVer + "platform: " + platform);
+
+        //indx page
         String url = "http://hahow.csie.org";
         System.out.println("URL:" + url);
         webDriver.get(url);
