@@ -117,7 +117,7 @@ public class NoLoginUser implements SauceOnDemandSessionIdProvider {
     }
 
 
-    public WebDriverWithHelperParametersTest(String s1, String s2, String s3) {
+    public NoLoginUser(String s1, String s2, String s3) {
         browser = s1;
         browserVersion = s2;
         platform = s3;
