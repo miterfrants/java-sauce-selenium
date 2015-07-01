@@ -41,7 +41,7 @@ public class NoLoginTest implements SauceOnDemandSessionIdProvider
     public @Rule TestName testName = new TestName();
 
     @Parameters
-    public static DesiredCapabilities[] data() {
+    public static List<DesiredCapabilities> data() {
         System.out.println("set @parameters");
 
         DesiredCapabilities[] drivers = new DesiredCapabilities[2];
