@@ -30,11 +30,11 @@ import static org.junit.Assert.assertEquals;
 public class NoLoginTest
  {
 
-    private Collection<DesiredCapabilities> drivers;
+    private List<DesiredCapabilities> drivers;
     private WebDriver driver;
     @Before
     public void setUp() throws Exception {
-        drivers = new Collection<DesiredCapabilities>();
+        drivers = new ArrayList<DesiredCapabilities>();
         // Choose the browser, version, and platform to test
         DesiredCapabilities capsIE11Win81 = DesiredCapabilities.internetExplorer();
         capsIE11Win81.setCapability("platform", "Windows 8.1");
