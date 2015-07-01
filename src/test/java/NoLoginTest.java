@@ -58,7 +58,7 @@ public class NoLoginTest
             driver = new RemoteWebDriver(
                 new URL("http://miterfrants:08d2200d-eabe-4d7e-817b-ecb7fb03af57@ondemand.saucelabs.com:80/wd/hub"),
                 this.drivers.get(i));
-            this.sessionId = ((RemoteWebDriver)webDriver).getSessionId().toString();
+            this.sessionId = ((RemoteWebDriver)driver).getSessionId().toString();
 
             String url = "http://hahow.csie.org/";
             driver.get(url);
