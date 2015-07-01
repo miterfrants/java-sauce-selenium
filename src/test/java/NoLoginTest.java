@@ -41,7 +41,7 @@ public class NoLoginTest implements SauceOnDemandSessionIdProvider
     public @Rule TestName testName = new TestName();
 
     @Parameters
-    public static Collection<DesiredCapabilities> data() {
+    public static Collection<Object[]> data() {
         System.out.println("set @parameters");
 
         List<DesiredCapabilities> drivers = new ArrayList<DesiredCapabilities>();
@@ -58,7 +58,12 @@ public class NoLoginTest implements SauceOnDemandSessionIdProvider
 
         drivers.add(capsIE11Win7);
 
-        return drivers;
+        Object[][] caps = {
+            {capsIE11Win81},
+            {capsIE11Win7}
+        };
+
+        return Arrays.asList(caps);
 
     }
 
