@@ -32,6 +32,8 @@ public class NoLoginTest
 
     private List<DesiredCapabilities> drivers;
     private WebDriver driver;
+    private String sessionId = "";
+
     @Before
     public void setUp() throws Exception {
         drivers = new ArrayList<DesiredCapabilities>();
@@ -56,6 +58,8 @@ public class NoLoginTest
             driver = new RemoteWebDriver(
                 new URL("http://miterfrants:08d2200d-eabe-4d7e-817b-ecb7fb03af57@ondemand.saucelabs.com:80/wd/hub"),
                 this.drivers.get(i));
+            this.sessionId = ((RemoteWebDriver)webDriver).getSessionId().toString();
+
             String url = "http://hahow.csie.org/";
             driver.get(url);
             System.out.println("URL:" + url);
@@ -69,6 +73,12 @@ public class NoLoginTest
     @After
     public void tearDown() throws Exception {
         
+    }
+
+
+    @Override
+    public String getSessionId() {
+            return sessionId;
     }
 
 }
