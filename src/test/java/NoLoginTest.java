@@ -72,10 +72,10 @@ public class NoLoginTest implements SauceOnDemandSessionIdProvider
         capsChromeWin7.setCapability("version", "43.0");
         capsChromeWin7.setCapability("screen-resolution", "1280x1024");
 
-        DesiredCapabilities capsFirefox = DesiredCapabilities.firefox();
-        capsFirefox.setCapability("platform", "Windows 7");
-        capsFirefox.setCapability("version", "38.0");
-        capsFirefox.setCapability("screen-resolution", "1280x1024");
+        DesiredCapabilities capsFirefoxWin7 = DesiredCapabilities.firefox();
+        capsFirefoxWin7.setCapability("platform", "Windows 7");
+        capsFirefoxWin7.setCapability("version", "38.0");
+        capsFirefoxWin7.setCapability("screen-resolution", "1280x1024");
 
         //Mac 10.10
         DesiredCapabilities capsChromeMac1010 = DesiredCapabilities.chrome();
