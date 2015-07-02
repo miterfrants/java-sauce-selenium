@@ -132,8 +132,7 @@ public class NoLoginTest implements SauceOnDemandSessionIdProvider
             {capsFirefoxMac1010},
             {capsIphone82},
             {capsIphone81},
-            {capsiPad},
-            {capsAndroid44}
+            {capsiPad}
         };
 
         return Arrays.asList(caps);
@@ -141,7 +140,7 @@ public class NoLoginTest implements SauceOnDemandSessionIdProvider
     }
 
     public NoLoginTest(DesiredCapabilities pCaps) {
-        System.out.println("new a test instant");
+        System.out.println("new a test instance");
         this.caps = pCaps;
     }
 
